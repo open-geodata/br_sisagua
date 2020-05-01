@@ -3,6 +3,7 @@
 data/*.*
 data/*
 data/
+docs/
 .ipynb_checkpoints
 
 
