@@ -1,12 +1,18 @@
-
-.ipynb_checkpoints
+#
 data/*.*
 data/*
 data/
 docs/
+docs2/
+test/old/*
 
+# Dask
+src/dask-worker*/
+test/dask-worker*/
 
-
+# IDEs
+.vscode/
+.idea/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
