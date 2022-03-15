@@ -5,6 +5,7 @@ import os
 
 # Pastas
 data_path = os.path.join('..', 'data')
+docs_path = os.path.join('..', 'docs')
 
 bruto_path = os.path.join(data_path, 'brutos')
 input_path = os.path.join(data_path, 'input')
@@ -19,6 +20,7 @@ output_path_cidades = os.path.join(output_path, 'cidades')
 
 # Cria
 os.makedirs(data_path, exist_ok=True)
+os.makedirs(docs_path, exist_ok=True)
 os.makedirs(bruto_path, exist_ok=True)
 os.makedirs(input_path, exist_ok=True)
 os.makedirs(output_path, exist_ok=True)
