@@ -25,7 +25,7 @@ Os dados da Plataforma Siságua estão disponíveis no [Portal de Dados Abertos]
 3. Reparticionar os dados em formato *.parquet*, utilizando **estado** e **município**.
 
 
-Para obtenção dos dados, há um arquivo na pasta *docs* com todas as URLs. COm isso é possível fazer o download utilizando um gerenciador de *download*. Sugere-se o [jdownloader](https://jdownloader.org). Para instalar em:
+Para obtenção dos dados, há um arquivo na pasta *docs* com todas as URLs. Com isso é possível fazer o download utilizando um gerenciador de *download*. Sugere-se o [jdownloader](https://jdownloader.org). Para instalar em:
 - [Windows](https://jdownloader.org/download/index)
 - [Ubuntu e outras distribuições linux com *snap*](https://snapcraft.io/install/jdownloader2/ubuntu)
 
