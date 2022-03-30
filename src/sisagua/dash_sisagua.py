@@ -13,8 +13,8 @@ from datetime import date
 
 
 try:
-    print('Read "cod_ibge" from Python File')
-    from cod_ibge import *
+    print('Read "ibge" from Python File')
+    from ibge import *
 except:
     pass
 
