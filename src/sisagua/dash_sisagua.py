@@ -3,18 +3,40 @@
 
 import os
 import sys
+import pandas as pd
+from datetime import date
+
 #import folium
 #import numpy as np
-import pandas as pd
 #import seaborn as sns
 #import geopandas as gpd
 #from folium import plugins
-from datetime import date
 
 
 try:
     print('Read "ibge" from Python File')
-    from ibge import *
+    #from ibge import *
+    
+    
+    def adjust_cod_ibge(cod_ibge):
+        if len(str(cod_ibge)) == 6:
+            print('Padrão IBGE antigo, com código de 6 dígitos.\nSem correções necessárias.')
+            cod_ibge = int(cod_ibge)
+            print('Código IBGE: {}'.format(cod_ibge))
+
+        elif len(str(cod_ibge)) == 7:
+            print('Padrão IBGE novo, com código de 7 dígitos.\nCorreções necessárias aplicadas!')
+            cod_ibge = cod_ibge[0:6]
+            cod_ibge = int(cod_ibge)
+            print('Código IBGE: {}'.format(cod_ibge))
+
+        else:
+            print('Padrão Diferente!\nDesenvolver correção!')
+
+        return cod_ibge
+
+
+    
 except:
     pass
 
