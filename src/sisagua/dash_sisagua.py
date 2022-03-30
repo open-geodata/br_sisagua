@@ -25,7 +25,6 @@ def adjust_cod_ibge(cod_ibge):
 
 # Parameters
 estado = 'SP'
-cod_ibge = '3548906'  # São Carlos
 cod_ibge = '3526902'  # Limeira
 
 # Adjust Code
@@ -33,11 +32,14 @@ cod_ibge_adjusted = adjust_cod_ibge(cod_ibge)
 
 # Path name
 city_path = '{}_{}'.format(estado, cod_ibge_adjusted)
-city_path
+
 
 print('Read "data" from Python File')
 output_path_cidades = os.path.abspath(
     os.path.join(os.path.dirname(__file__), '..', '..', 'data', 'output', 'cidades'))
+
+print(output_path_cidades)
+
 df = pd.read_excel(
     os.path.join(output_path_cidades, city_path, 'vigilancia', 'vigilancia_parametros_basicos.xlsx')
 )
