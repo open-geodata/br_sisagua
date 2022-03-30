@@ -2,7 +2,11 @@
 # coding: utf-8
 
 import os
+import dash
 import pandas as pd
+from dash import Dash, dcc, html, Input, Output
+import plotly.express as px
+import plotly.graph_objects as go
 
 
 def adjust_cod_ibge(cod_ibge):
@@ -29,10 +33,10 @@ cod_ibge = '3526902'  # Limeira
 
 # Adjust Code
 cod_ibge_adjusted = adjust_cod_ibge(cod_ibge)
-
-# Path name
 city_path = '{}_{}'.format(estado, cod_ibge_adjusted)
 
+
+# Paths
 print('Read "data" from Python File')
 output_path_cidades = os.path.abspath(
     os.path.join(
@@ -59,7 +63,6 @@ df = df[df['Parâmetro (Parâmetros Básicos)'].str.contains('Cloro')]
 # Ajusta Resultados
 df['Resultado'] = df['Resultado'].astype(str).str.replace(',', '.')
 df.loc['Resultado'] = pd.to_numeric(df['Resultado'], errors='coerce')
-df['Resultado']
 df.head()
 
 # Adjust Dates
@@ -67,15 +70,18 @@ df['Data Da Coleta'] = pd.to_datetime(df['Data Da Coleta'])
 df['Data Do Laudo'] = pd.to_datetime(df['Data Do Laudo'])
 df['Data De Registro No Sisagua'] = pd.to_datetime(df['Data De Registro No Sisagua'])
 
-import dash
-from dash import Dash, dcc, html, Input, Output
-# from jupyter_dash import JupyterDash
 
-import plotly.express as px
-import plotly.graph_objects as go
+
+
+
+
+
+
 
 # Start
-app = Dash(__name__)
+external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
+app = Dash(__name__, external_stylesheets=external_stylesheets)
+server = app.server
 
 # 
 app.layout = html.Div([
@@ -130,7 +136,6 @@ def update_graph(xaxis_column_name):
         hovermode='x',
 
     )
-    # fig.write_html('ddd.html', config=config)
     return fig
 
 
