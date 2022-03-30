@@ -6,6 +6,9 @@ docs/
 docs2/
 test/old/*
 
+#
+.Rhistory
+
 # Dask
 src/dask-worker*/
 test/dask-worker*/
