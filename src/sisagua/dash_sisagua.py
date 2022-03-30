@@ -33,7 +33,6 @@ cod_ibge_adjusted = adjust_cod_ibge(cod_ibge)
 # Path name
 city_path = '{}_{}'.format(estado, cod_ibge_adjusted)
 
-
 print('Read "data" from Python File')
 output_path_cidades = os.path.abspath(
     os.path.join(
@@ -70,7 +69,7 @@ df['Data De Registro No Sisagua'] = pd.to_datetime(df['Data De Registro No Sisag
 
 import dash
 from dash import Dash, dcc, html, Input, Output
-#from jupyter_dash import JupyterDash
+# from jupyter_dash import JupyterDash
 
 import plotly.express as px
 import plotly.graph_objects as go
@@ -135,5 +134,7 @@ def update_graph(xaxis_column_name):
     return fig
 
 
-# Run
-app.run_server(mode='inline', port=8051)
+if __name__ == '__main__':
+    app.run_server(
+        debug=True
+    )
