@@ -35,15 +35,13 @@ cod_ibge_adjusted = adjust_cod_ibge(cod_ibge)
 city_path = '{}_{}'.format(estado, cod_ibge_adjusted)
 city_path
 
-try:
-    print('Read "data" from Python File')
-    output_path_cidades = os.path.abspath(
-        os.path.join(os.path.dirname(__file__), '..', '..', 'data', 'output', 'cidades'))
-    df = pd.read_excel(
-        os.path.join(output_path_cidades, city_path, 'vigilancia', 'vigilancia_parametros_basicos.xlsx')
-    )
-except:
-    pass
+print('Read "data" from Python File')
+output_path_cidades = os.path.abspath(
+    os.path.join(os.path.dirname(__file__), '..', '..', 'data', 'output', 'cidades'))
+df = pd.read_excel(
+    os.path.join(output_path_cidades, city_path, 'vigilancia', 'vigilancia_parametros_basicos.xlsx')
+)
+
 
 # Results
 print(df.info())
