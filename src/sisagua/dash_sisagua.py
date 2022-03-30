@@ -36,14 +36,20 @@ city_path = '{}_{}'.format(estado, cod_ibge_adjusted)
 
 print('Read "data" from Python File')
 output_path_cidades = os.path.abspath(
-    os.path.join(os.path.dirname(__file__), '..', '..', 'data', 'output', 'cidades'))
+    os.path.join(
+        os.path.dirname(__file__),
+        '..', '..',
+        'data', 'output',
+        'cidades'
+    )
+)
 
 print(output_path_cidades)
 
+# 'https://raw.githubusercontent.com/open-geodata/br_sisagua/data/output/cidades/SP_352690/vigilancia/vigilancia_parametros_basicos.xlsx'
 df = pd.read_excel(
     os.path.join(output_path_cidades, city_path, 'vigilancia', 'vigilancia_parametros_basicos.xlsx')
 )
-
 
 # Results
 print(df.info())
