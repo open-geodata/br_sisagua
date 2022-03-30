@@ -1,12 +1,12 @@
-#
-data/*.*
+# Data
 data/*
-data/
+!data/output
+
+# Docs
 docs/
-docs2/
 test/old/*
 
-#
+# R
 .Rhistory
 
 # Dask
