@@ -70,13 +70,13 @@ df['Data De Registro No Sisagua'] = pd.to_datetime(df['Data De Registro No Sisag
 
 import dash
 from dash import Dash, dcc, html, Input, Output
-from jupyter_dash import JupyterDash
+#from jupyter_dash import JupyterDash
 
 import plotly.express as px
 import plotly.graph_objects as go
 
 # Start
-app = JupyterDash(__name__)
+app = Dash(__name__)
 
 # 
 app.layout = html.Div([
