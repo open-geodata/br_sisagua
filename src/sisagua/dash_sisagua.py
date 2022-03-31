@@ -17,7 +17,6 @@ output_path_dados = os.path.abspath(
         'output',
     )
 )
-print(output_path_dados)
 print(os.listdir(output_path_dados))
 
 # Parameters
