@@ -5,12 +5,13 @@ from open_geodata import geo
 
 
 def adjust_id_ibge(id_ibge):
-    if len(str(id_ibge)) == 6:
+    len_ibge = len(str(id_ibge))
+    if len_ibge == 6:
         print('Padrão IBGE antigo, com código de 6 dígitos.\nSem correções necessárias.')
         id_ibge = int(id_ibge)
         print('Código IBGE: {}'.format(id_ibge))
 
-    elif len(str(id_ibge)) == 7:
+    elif len_ibge == 7:
         print('Padrão IBGE novo, com código de 7 dígitos.\nCorreções necessárias aplicadas!')
         id_ibge = id_ibge[0:6]
         id_ibge = int(id_ibge)
