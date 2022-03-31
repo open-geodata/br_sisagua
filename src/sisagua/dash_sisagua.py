@@ -7,8 +7,6 @@ import pandas as pd
 from dash import Dash, dcc, html, Input, Output
 import plotly.graph_objects as go
 
-# Parameters
-id_ibge = '3526902'  # Limeira
 
 # Paths
 output_path_dados = os.path.abspath(
@@ -19,8 +17,11 @@ output_path_dados = os.path.abspath(
         'output',
     )
 )
-
 print(output_path_dados)
+print(os.listdir(output_path_dados))
+
+# Parameters
+id_ibge = '3526902'  # Limeira
 
 df = pd.read_excel(
     os.path.join(output_path_dados, str(id_ibge), 'dados brutos', 'vigilancia', 'vigilancia_parametros_basicos.xlsx')
