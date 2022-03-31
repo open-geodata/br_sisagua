@@ -7,47 +7,23 @@ import pandas as pd
 from dash import Dash, dcc, html, Input, Output
 import plotly.graph_objects as go
 
-
-def adjust_cod_ibge(cod_ibge):
-    if len(str(cod_ibge)) == 6:
-        print('Padrão IBGE antigo, com código de 6 dígitos.\nSem correções necessárias.')
-        cod_ibge = int(cod_ibge)
-        print('Código IBGE: {}'.format(cod_ibge))
-
-    elif len(str(cod_ibge)) == 7:
-        print('Padrão IBGE novo, com código de 7 dígitos.\nCorreções necessárias aplicadas!')
-        cod_ibge = cod_ibge[0:6]
-        cod_ibge = int(cod_ibge)
-        print('Código IBGE: {}'.format(cod_ibge))
-
-    else:
-        print('Padrão Diferente!\nDesenvolver correção!')
-
-    return cod_ibge
-
-
 # Parameters
-estado = 'SP'
-cod_ibge = '3526902'  # Limeira
-
-# Adjust Code
-cod_ibge_adjusted = adjust_cod_ibge(cod_ibge)
-city_path = '{}_{}'.format(estado, cod_ibge_adjusted)
+id_ibge = '3526902'  # Limeira
 
 # Paths
-output_path_cidades = os.path.abspath(
+output_path_dados = os.path.abspath(
     os.path.join(
         os.path.dirname(__file__),
         '..', '..',
-        'data', 'output',
-        'cidades'
+        'data',
+        'output',
     )
 )
 
-print(output_path_cidades)
+print(output_path_dados)
 
 df = pd.read_excel(
-    os.path.join(output_path_cidades, city_path, 'vigilancia', 'vigilancia_parametros_basicos.xlsx')
+    os.path.join(output_path_dados, str(id_ibge), 'vigilancia', 'vigilancia_parametros_basicos.xlsx')
 )
 
 # Results
@@ -65,13 +41,6 @@ df.head()
 df['Data Da Coleta'] = pd.to_datetime(df['Data Da Coleta'])
 df['Data Do Laudo'] = pd.to_datetime(df['Data Do Laudo'])
 df['Data De Registro No Sisagua'] = pd.to_datetime(df['Data De Registro No Sisagua'])
-
-
-
-
-
-
-
 
 # Dash
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
