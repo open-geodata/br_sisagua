@@ -23,7 +23,7 @@ output_path_dados = os.path.abspath(
 print(output_path_dados)
 
 df = pd.read_excel(
-    os.path.join(output_path_dados, str(id_ibge), 'vigilancia', 'vigilancia_parametros_basicos.xlsx')
+    os.path.join(output_path_dados, str(id_ibge), 'dados brutos', 'vigilancia', 'vigilancia_parametros_basicos.xlsx')
 )
 
 # Results
