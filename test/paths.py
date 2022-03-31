@@ -16,7 +16,7 @@ input_path_parquet = os.path.join(input_path, 'parquet')
 input_path_parquet_partitioned = os.path.join(input_path, 'parquet_partitioned')
 
 # Bruto
-output_path_cidades = os.path.join(output_path, 'cidades')
+#output_path_cidades = os.path.join(output_path, 'cidades')
 
 # Cria
 os.makedirs(data_path, exist_ok=True)
@@ -30,7 +30,7 @@ os.makedirs(input_path_parquet, exist_ok=True)
 os.makedirs(input_path_parquet_partitioned, exist_ok=True)
 
 # Cria
-os.makedirs(output_path_cidades, exist_ok=True)
+#os.makedirs(output_path_cidades, exist_ok=True)
 
 
 

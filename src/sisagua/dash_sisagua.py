@@ -1,11 +1,10 @@
 #!/usr/bin/env python
 # coding: utf-8
 
+
 import os
-import dash
 import pandas as pd
 from dash import Dash, dcc, html, Input, Output
-import plotly.express as px
 import plotly.graph_objects as go
 
 
@@ -35,9 +34,7 @@ cod_ibge = '3526902'  # Limeira
 cod_ibge_adjusted = adjust_cod_ibge(cod_ibge)
 city_path = '{}_{}'.format(estado, cod_ibge_adjusted)
 
-
 # Paths
-print('Read "data" from Python File')
 output_path_cidades = os.path.abspath(
     os.path.join(
         os.path.dirname(__file__),
@@ -49,7 +46,6 @@ output_path_cidades = os.path.abspath(
 
 print(output_path_cidades)
 
-# 'https://raw.githubusercontent.com/open-geodata/br_sisagua/data/output/cidades/SP_352690/vigilancia/vigilancia_parametros_basicos.xlsx'
 df = pd.read_excel(
     os.path.join(output_path_cidades, city_path, 'vigilancia', 'vigilancia_parametros_basicos.xlsx')
 )
@@ -77,8 +73,7 @@ df['Data De Registro No Sisagua'] = pd.to_datetime(df['Data De Registro No Sisag
 
 
 
-
-# Start
+# Dash
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 app = Dash(__name__, external_stylesheets=external_stylesheets)
 server = app.server
@@ -113,7 +108,6 @@ def update_graph(xaxis_column_name):
     fig.add_trace(
         go.Scatter(
             x=df['Data Da Coleta'],
-            # y=df['Resultado'],
             y=df[df['Nome Da Forma De Abastecimento'] == xaxis_column_name]['Resultado'],
             name='conclusao',
             mode='markers',
@@ -122,7 +116,7 @@ def update_graph(xaxis_column_name):
         )
     )
 
-    # Udate
+    # Update
     fig.update_layout(
         title='Cloro Residual na "{}"'.format(xaxis_column_name),
         xaxis_tickformat='%d %b<br>%Y',
