@@ -20,7 +20,7 @@ output_path_dados = os.path.abspath(
 print(os.listdir(output_path_dados))
 
 # Parameters
-id_ibge = '3526902'  # Limeira
+id_ibge = '3526902'     # Limeira
 
 df = pd.read_excel(
     os.path.join(output_path_dados, str(id_ibge), 'dados brutos', 'vigilancia', 'vigilancia_parametros_basicos.xlsx')
@@ -47,7 +47,7 @@ external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 app = Dash(__name__, external_stylesheets=external_stylesheets)
 server = app.server
 
-# 
+#
 app.layout = html.Div([
     html.Div([
         html.Div(
