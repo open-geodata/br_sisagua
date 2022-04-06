@@ -6,16 +6,13 @@ import os
 import pandas as pd
 from dash import Dash, dcc, html, Input, Output
 import plotly.graph_objects as go
-
-import git_api
-
-
+import .git_api
 
 list_cities = git_api.get_cities()
 print(list_cities)
 
 # Parameters
-id_ibge = '3526902'     # Limeira
+id_ibge = '3526902'  # Limeira
 
 # Paths
 user = 'open-geodata'
@@ -24,7 +21,6 @@ branch = 'master'
 path = 'data/output/{}/dados brutos/vigilancia/vigilancia_parametros_basicos.xlsx'.format(id_ibge)
 url_csv = os.path.join('https://raw.githubusercontent.com', user, repo, branch, path)
 url_csv = url_csv.replace(' ', '%20')
-
 
 df = pd.read_excel(
     url_csv,
@@ -119,9 +115,6 @@ if __name__ == '__main__':
 
 
 
-
-
-
 # # Paths
 # output_path_dados = os.path.abspath(
 #     os.path.join(
@@ -132,4 +125,4 @@ if __name__ == '__main__':
 #     )
 # )
 
-    #os.path.join(output_path_dados, str(id_ibge), 'dados brutos', 'vigilancia', 'vigilancia_parametros_basicos.xlsx'),
+# os.path.join(output_path_dados, str(id_ibge), 'dados brutos', 'vigilancia', 'vigilancia_parametros_basicos.xlsx'),
