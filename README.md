@@ -57,4 +57,3 @@ heroku logs --tail --app dash-sisagua
 2. <strike>Usar um gerenciador de download</strike>
 3. Notei que a tabela das ETAs (no ambito do cadastro) não tem coordenadas. Não consigo plotar as ETAs!
 4. Pegar dicinários que explicam metadados
-
