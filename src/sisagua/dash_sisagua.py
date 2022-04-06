@@ -7,23 +7,33 @@ import pandas as pd
 from dash import Dash, dcc, html, Input, Output
 import plotly.graph_objects as go
 
+import git_api
 
-# Paths
-output_path_dados = os.path.abspath(
-    os.path.join(
-        os.path.dirname(__file__),
-        '..', '..',
-        'data',
-        'output',
-    )
-)
-print(os.listdir(output_path_dados))
+
+
+list_cities = git_api.get_cities()
+print(list_cities)
 
 # Parameters
 id_ibge = '3526902'     # Limeira
 
+# Paths
+user = 'open-geodata'
+repo = 'br_sisagua'
+branch = 'master'
+path = 'data/output/{}/dados brutos/vigilancia/vigilancia_parametros_basicos.xlsx'.format(id_ibge)
+url_csv = os.path.join('https://raw.githubusercontent.com', user, repo, branch, path)
+url_csv = url_csv.replace(' ', '%20')
+
+
 df = pd.read_excel(
-    os.path.join(output_path_dados, str(id_ibge), 'dados brutos', 'vigilancia', 'vigilancia_parametros_basicos.xlsx')
+    url_csv,
+    usecols=[
+        'Nome Da Forma De Abastecimento',
+        'Parâmetro (Parâmetros Básicos)',
+        'Resultado',
+        'Data Da Coleta',
+    ]
 )
 
 # Results
@@ -35,12 +45,9 @@ df = df[df['Parâmetro (Parâmetros Básicos)'].str.contains('Cloro')]
 # Ajusta Resultados
 df['Resultado'] = df['Resultado'].astype(str).str.replace(',', '.')
 df.loc['Resultado'] = pd.to_numeric(df['Resultado'], errors='coerce')
-df.head()
 
 # Adjust Dates
 df['Data Da Coleta'] = pd.to_datetime(df['Data Da Coleta'])
-df['Data Do Laudo'] = pd.to_datetime(df['Data Do Laudo'])
-df['Data De Registro No Sisagua'] = pd.to_datetime(df['Data De Registro No Sisagua'])
 
 # Dash
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
@@ -106,3 +113,23 @@ if __name__ == '__main__':
     app.run_server(
         debug=True
     )
+
+
+
+
+
+
+
+
+
+# # Paths
+# output_path_dados = os.path.abspath(
+#     os.path.join(
+#         os.path.dirname(__file__),
+#         '..', '..',
+#         'data',
+#         'output',
+#     )
+# )
+
+    #os.path.join(output_path_dados, str(id_ibge), 'dados brutos', 'vigilancia', 'vigilancia_parametros_basicos.xlsx'),
