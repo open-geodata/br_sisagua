@@ -8,7 +8,10 @@ from dash import Dash, dcc, html, Input, Output
 import plotly.graph_objects as go
 from src.sisagua.git_api import *
 
-list_cities = get_cities()
+credential = os.getenv('API_TOKEN_GITHUB')
+print(credential)
+
+list_cities = get_cities(cred=credential['API_TOKEN_GITHUB'])
 print(list_cities)
 
 # Parameters
