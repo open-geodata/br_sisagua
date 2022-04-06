@@ -9,9 +9,11 @@ import plotly.graph_objects as go
 from src.sisagua.git_api import *
 
 credential = os.getenv('API_TOKEN_GITHUB')
+credential2 = os.environ['API_TOKEN_GITHUB']
 print(credential)
+print(credential2)
 
-list_cities = get_cities(cred=credential['API_TOKEN_GITHUB'])
+list_cities = get_cities(cred=credential2)
 print(list_cities)
 
 # Parameters
