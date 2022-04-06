@@ -6,9 +6,9 @@ import os
 import pandas as pd
 from dash import Dash, dcc, html, Input, Output
 import plotly.graph_objects as go
-import .git_api
+from src.sisagua.git_api import *
 
-list_cities = git_api.get_cities()
+list_cities = get_cities()
 print(list_cities)
 
 # Parameters
