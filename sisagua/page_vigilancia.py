@@ -4,8 +4,8 @@
 from dash import Input, Output, dcc, html
 import dash_bootstrap_components as dbc
 
-from dash_boot import app
-from basic_parameters import df_vig_basic_param
+#from dash_boot import app
+#from basic_parameters import df_vig_basic_param
 
 
 
