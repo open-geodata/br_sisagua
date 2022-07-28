@@ -1,8 +1,11 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-from dash import Input, Output, dcc, html
+from dash import dcc, html
 import dash_bootstrap_components as dbc
+
+
+
 
 controle_parameters_basic = html.Div(
     children=[

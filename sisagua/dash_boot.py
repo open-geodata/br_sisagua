@@ -7,7 +7,7 @@ from dash import Dash, Input, Output, dcc, html
 from dash_bootstrap_templates import ThemeSwitchAIO
 import plotly.graph_objects as go
 
-from graphs import graph_no_data
+from sisagua.graphs import graph_no_data
 from graphs import *
 from page_home import *
 from page_cadastro import *

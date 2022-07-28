@@ -1,8 +1,11 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-from dash import Input, Output, dcc, html
+from dash import html
 import dash_bootstrap_components as dbc
+
+
+
 
 home_page = html.Div(
     [
@@ -15,7 +18,8 @@ home_page = html.Div(
                     className='lead'
                 ),
                 html.P('Apresenta a descrição do sistema de abastecimento público, conforme preenchimento das Vigilâncias Sanitárias Municipais e outros responsáveis.', className='lead'),
-                html.P('Avaliar o atendimento a Portaria do Ministério da Saúde nº 05, de 2017.', className='lead'),
+                html.P(
+                    'Avaliar o atendimento a Portaria do Ministério da Saúde nº 05, de 2017.', className='lead'),
             ],
             fluid=True,
             className='py-3',
