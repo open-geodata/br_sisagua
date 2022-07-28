@@ -1,1 +1,1 @@
-web: gunicorn sisagua.dash_boot:server
+web: gunicorn main:server
