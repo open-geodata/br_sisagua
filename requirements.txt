@@ -8,3 +8,4 @@ open-geodata>=22.3.52
 PyGithub>=1.55
 sqlalchemy
 dash-bootstrap-templates>=1.0.6
+psycopg2
