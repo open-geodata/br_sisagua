@@ -1,7 +1,11 @@
 #!/usr/bin/env python
 # coding: utf-8
 
+
+
 import plotly.graph_objects as go
+
+
 
 
 def graph_no_data(parametro, forma_abastecimento_nome):
