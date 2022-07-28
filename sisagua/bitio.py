@@ -4,7 +4,9 @@
 import pandas as pd
 from sqlalchemy import create_engine
 from sqlalchemy.sql import text
-from dash import Dash, dcc, html, Input, Output
+
+
+
 
 USERNAME = 'michelmetran'
 REPO = 'br_sisagua'
@@ -12,7 +14,7 @@ API_KEY = '3iZAb_9h6ucvXkPMCZBkqgCJCHvht'
 PASSWORD = 'v2_3svVD_A7YJ4NyMgssmyKxmNgaxYkb'
 PG_STRING = f'postgresql://michelmetran_demo_db_connection:{API_KEY}@db.bit.io?sslmode=prefer'
 PG_STRING = f'postgresql://michelmetran:v2_3svVD_A7YJ4NyMgssmyKxmNgaxYkb@db.bit.io/michelmetran/br_sisagua'
-PG_STRING = f'postgresql://michelmetran:{PASSWORD}@db.bit.io/{USERNAME}/{REPO}'
+PG_STRING = f'postgresql://{USERNAME}:{PASSWORD}@db.bit.io/{USERNAME}/{REPO}'
 
 engine = create_engine(PG_STRING, isolation_level='AUTOCOMMIT')
 

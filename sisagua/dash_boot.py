@@ -7,14 +7,16 @@ from dash import Dash, Input, Output, dcc, html
 from dash_bootstrap_templates import ThemeSwitchAIO
 import plotly.graph_objects as go
 
-from sisagua.graphs import graph_no_data
-from graphs import *
-from page_home import *
-from page_cadastro import *
-from page_vigilancia import *
-from page_controle import *
-from basic_parameters import *
-from bitio import *
+from sisagua.bitio import *
+from sisagua.graphs import *
+from sisagua.basic_parameters import *
+
+from sisagua.pages.page_home import *
+from sisagua.pages.page_cadastro import *
+from sisagua.pages.page_vigilancia import *
+from sisagua.pages.page_controle import *
+
+
 
 # Themes
 url_theme1 = dbc.themes.CERULEAN
