@@ -35,6 +35,7 @@ app = Dash(
     ],
     title='Siságua',
 )
+server = app.server
 
 # Navbar
 navbar = dbc.Navbar(
