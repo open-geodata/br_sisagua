@@ -10,8 +10,7 @@ test/old/*
 .Rhistory
 
 # Dask
-src/dask-worker*/
-test/dask-worker*/
+*/dask-worker*/
 
 # IDEs
 .vscode/

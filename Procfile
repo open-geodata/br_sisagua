@@ -1,2 +1,2 @@
-web: gunicorn src.sisagua.dash_sisagua:server
+web: gunicorn sisagua.dash_sisagua:server
 
