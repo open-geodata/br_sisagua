@@ -1,30 +1,29 @@
-#!/usr/bin/env python
-# coding: utf-8
+"""
+sss
+"""
 
-import pandas as pd
-from sqlalchemy import create_engine
-from sqlalchemy.sql import text
+from ..packages import *
 
-
-
-
+#
 USERNAME = 'michelmetran'
 REPO = 'br_sisagua'
-API_KEY = '3iZAb_9h6ucvXkPMCZBkqgCJCHvht'
 PASSWORD = 'v2_3svVD_A7YJ4NyMgssmyKxmNgaxYkb'
-PG_STRING = f'postgresql://michelmetran_demo_db_connection:{API_KEY}@db.bit.io?sslmode=prefer'
-PG_STRING = f'postgresql://michelmetran:v2_3svVD_A7YJ4NyMgssmyKxmNgaxYkb@db.bit.io/michelmetran/br_sisagua'
 PG_STRING = f'postgresql://{USERNAME}:{PASSWORD}@db.bit.io/{USERNAME}/{REPO}'
 
 engine = create_engine(PG_STRING, isolation_level='AUTOCOMMIT')
 
 
-def get_cadastro_municipios_municipios():
+def get_municipios():
+    """
+    Faz consulta no banco de dados, na tabela cadastro...
+    :return: Dataframe com dados dos municipios
+    """
     # Query
     sql = f'''
         SELECT "id_ibge", "municipio_nome" FROM "{USERNAME}/{REPO}"."cadastro_municipios";
     '''
-    print(sql)
+
+
 
     # Execute
     with engine.connect() as conn:
@@ -33,7 +32,23 @@ def get_cadastro_municipios_municipios():
 
     # Dataframe
     df = pd.DataFrame(query.fetchall())
-    return [{'label': row['municipio_nome'], 'value': row['id_ibge']} for i, row in df.iterrows()]
+    print(df.head())
+    return df
+
+
+def get_cadastro_municipios_municipios(df_mun):
+    """
+    DDDD
+    :param df_mun:
+    :return: Lista com conteudo para dropdown
+    """
+    print('get_cadastro_municipios_municipios')
+    return [
+        {
+            'label': row['municipio_nome'],
+            'value': row['id_ibge']
+        } for i, row in df_mun.iterrows()
+    ]
 
 
 def get_vig_other_parameters_municipio():
@@ -41,6 +56,8 @@ def get_vig_other_parameters_municipio():
     Seleciona Municípios que tem alguma amostra em "vig_demais_parametros"
     :rtype: object
     """
+    print('get_vig_other_parameters_municipio')
+
     # Query
     sql = f'''
         SELECT tab1."id_ibge", tab1."municipio_nome" FROM "{USERNAME}/{REPO}"."cadastro_municipios" AS tab1
@@ -50,7 +67,6 @@ def get_vig_other_parameters_municipio():
         ON tab1.id_ibge = tab2.id_ibge
         ORDER BY tab1."id_ibge";
     '''
-    print(sql)
 
     # Execute
     with engine.connect() as conn:
@@ -59,7 +75,25 @@ def get_vig_other_parameters_municipio():
 
     # Dataframe
     df = pd.DataFrame(query.fetchall())
-    return [{'label': row['municipio_nome'], 'value': row['id_ibge']} for i, row in df.iterrows()]
+    return [
+        {
+            'label': row['municipio_nome'],
+            'value': row['id_ibge']
+        } for i, row in df.iterrows()
+    ]
+
+
+if __name__ == '__main__':
+    # id_ibge = 3501301
+    # a = get_municipios()
+    # print(a)
+    # get_formas(id_ibge)
+    pass
+
+# Dados Velhos
+# API_KEY = '3iZAb_9h6ucvXkPMCZBkqgCJCHvht'
+# PG_STRING = f'postgresql://michelmetran_demo_db_connection:{API_KEY}@db.bit.io?sslmode=prefer'
+# PG_STRING = f'postgresql://michelmetran:v2_3svVD_A7YJ4NyMgssmyKxmNgaxYkb@db.bit.io/michelmetran/br_sisagua'
 
 
 # def get_formas(id_ibge):
@@ -99,10 +133,3 @@ def get_vig_other_parameters_municipio():
 #     df = pd.DataFrame(query.fetchall())
 #     print(df)
 #     return df
-
-
-if __name__ == '__main__':
-    id_ibge = 3501301
-    # a = get_municipios()
-    # print(a)
-    # get_formas(id_ibge)

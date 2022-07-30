@@ -1,10 +1,9 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-from dash import html
-import dash_bootstrap_components as dbc
+"""
+sss
+"""
 
 
+from ..packages import *
 
 
 home_page = html.Div(
@@ -98,3 +97,4 @@ home_page = html.Div(
         ),
     ],
 )
+

@@ -1,17 +1,14 @@
-#!/usr/bin/env python
-# coding: utf-8
+"""
+sss
+"""
 
-from dash import dcc, html
-import dash_bootstrap_components as dbc
-
-
-
+from ..packages import *
 
 controle_parameters_basic = html.Div(
     children=[
         html.Div(
             className='row seven columns',
-            children=dcc.Graph(id='con-basic-graphic'),
+            #children=dcc.Graph(id='con-basic-graphic'),
         ),
         html.Div(
             className='row two columns',
@@ -22,8 +19,12 @@ controle_parameters_basic = html.Div(
     ],
 )
 
-
 con_other_page = dbc.Label('Desenvolver página e análises'),
 con_infra_page = dbc.Label('Desenvolver página e análises'),
 con_fora_padrao_page = dbc.Label('Desenvolver página e análises'),
 con_semestral_page = dbc.Label('Desenvolver página e análises'),
+
+
+
+
+

@@ -75,3 +75,12 @@ heroku logs --tail --app dash-sisagua
 2. <strike>Usar um gerenciador de download</strike>
 3. Notei que a tabela das ETAs (no ambito do cadastro) não tem coordenadas. Não consigo plotar as ETAs!
 4. <strike>Pegar dicinários que explicam metadados</strike>
+
+<br>
+
+---
+
+### Referencias
+
+
+https://towardsdatascience.com/3-easy-ways-to-make-your-dash-application-look-better-3e4cfefaf772

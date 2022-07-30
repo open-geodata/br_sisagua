@@ -1,15 +1,16 @@
-#!/usr/bin/env python
-# coding: utf-8
+"""
+sss
+"""
 
-from dash import dcc, html
-import dash_bootstrap_components as dbc
+
+from ..packages import *
 
 
 vig_basic_page = html.Div(
     children=[
         html.Div(
             className='row seven columns',
-            children=dcc.Graph(id='vig-basic-graphic'),
+            children=dcc.Graph(id='id_vig_basic_graphic'),
         ),
         html.Div(
             className='row two columns',
@@ -25,7 +26,7 @@ vig_other_page = html.Div(
     children=[
         html.Div(
             className='row seven columns',
-            children=dcc.Graph(id='vig-other-graphic'),
+            children=dcc.Graph(id='id_vig_other_graphic'),
         ),
         html.Div(
             className='row two columns',
@@ -37,4 +38,6 @@ vig_other_page = html.Div(
 )
 
 
-vig_ciano_page = dbc.Label('Desenvolver página e análises'),
+vig_ciano_page = html.Div(
+    dbc.Label('Desenvolver página e análises')
+)
