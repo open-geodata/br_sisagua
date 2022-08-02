@@ -6,5 +6,5 @@ from sisagua.index import app
 
 app.run_server(
     debug=True,
-    port=8050,
+    port=8051,
 )
