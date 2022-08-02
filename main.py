@@ -4,7 +4,10 @@ sss
 
 from sisagua.index import app
 
-app.run_server(
-    debug=True,
-    port=8051,
-)
+server = app.server
+
+if __name__ == '__main__':
+    app.run_server(
+        # debug=True,
+        # port=8051,
+    )
