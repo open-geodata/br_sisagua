@@ -6,5 +6,6 @@ plotly>=5.6.0
 openpyxl>=3.0.0
 open-geodata>=22.3.52
 sqlalchemy
+dash-bootstrap-components>=1.2.0
 dash-bootstrap-templates>=1.0.6
 psycopg2
