@@ -5,9 +5,16 @@ sss
 import os
 from pathlib import Path
 
+
+project_path = Path(__file__).parents[1]
+
+
 # Pastas
-data_path = os.path.join('..', 'data')
-docs_path = os.path.join('..', 'docs')
+data_path = project_path / 'data'
+data_path.mkdir(exist_ok=True)
+
+docs_path = project_path / 'docs'
+docs_path.mkdir(exist_ok=True)
 
 bruto_path = os.path.join(data_path, 'brutos')
 input_path = os.path.join(data_path, 'input')
@@ -21,8 +28,6 @@ input_path_parquet_partitioned = os.path.join(input_path, 'parquet_partitioned')
 # output_path_cidades = os.path.join(output_path, 'cidades')
 
 # Cria
-os.makedirs(data_path, exist_ok=True)
-os.makedirs(docs_path, exist_ok=True)
 os.makedirs(bruto_path, exist_ok=True)
 os.makedirs(input_path, exist_ok=True)
 os.makedirs(output_path, exist_ok=True)
@@ -56,4 +61,4 @@ os.makedirs(input_path_parquet_partitioned, exist_ok=True)
 
 
 if __name__ == '__main__':
-    pass
+    print(project_path)
