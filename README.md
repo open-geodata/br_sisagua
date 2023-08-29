@@ -1,5 +1,7 @@
 # Siságua
 
+[GitHub](https://github.com/open-geodata/br_sisagua)
+
 O Sistema de Informação de Vigilância da Qualidade da Água para Consumo Humano ([Siságua](http://sisagua.saude.gov.br/sisagua/login.jsf)) é um instrumento do Programa Nacional de Vigilância da Qualidade da Água para consumo Humano (Vigiagua), construído com base no referido programa e na Portaria MS n° 2.914/2011 (atualmente, [Anexo XX da Portaria de Consolidação n° 05/2017](https://cevs-admin.rs.gov.br/upload/arquivos/201804/26143402-anexo-xx.pdf)), que tem como objetivo auxiliar o gerenciamento de riscos à saúde associados à qualidade da água destinada ao consumo humano, como parte integrante das ações de prevenção de agravos e de promoção da saúde, previstas no Sistema Único de Saúde.
 
 O Siságua armazena informações cadastrais sobre os sistemas e soluções alternativas de abastecimento de água para consumo humano, bem como sobre a qualidade da água proveniente de cada uma das formas cadastradas, inferida pelos prestadores do serviço (controle) e pelo setor saúde (vigilância).
